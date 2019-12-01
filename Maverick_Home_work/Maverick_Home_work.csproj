@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DebugHelper.cs" />
+    <Compile Include="Modes\Employee.cs" />
+    <Compile Include="Modes\LessThanOneYearEmployee.cs" />
     <Compile Include="SalaryRepo.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

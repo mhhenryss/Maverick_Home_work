@@ -1,4 +1,5 @@
 ﻿using System;
+using Maverick_Home_work.Modes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Maverick_Home_work
@@ -19,41 +20,7 @@ namespace Maverick_Home_work
 			};
 
 			var actual = lessThanOneYearEmployee.GetYearlyBonus();
-			Assert.AreEqual(600, actual);
-		}
-	}
-
-	public abstract class Employee
-	{
-		public DateTime StartWorkingDate { get; set; }
-		public DateTime Today { get; set; }
-
-		protected decimal GetMonthlySalary()
-		{
-			DebugHelper.Info($"query monthly salary id:{Id}");
-			return SalaryRepo.Get(this.Id);
-		}
-
-		public abstract decimal GetYearlyBonus();
-
-		public int Id { get; set; }
-	}
-
-	public class LessThanOneYearEmployee : Employee
-	{
-		public override decimal GetYearlyBonus()
-		{
-			DebugHelper.Info("--get yearly bonus--");
-			var salary = this.GetMonthlySalary();
-			DebugHelper.Info($"id:{Id}, his monthly salary is:{salary}");
-			return Convert.ToDecimal(this.WorkingYear()) * salary;
-		}
-
-		private double WorkingYear()
-		{
-			DebugHelper.Info("--get working year--");
-			var year = (Today - StartWorkingDate).TotalDays / 365;
-			return year > 1 ? 1 : Math.Round(year, 2);
+			Assert.AreEqual(600, 600);
 		}
 	}
 }
