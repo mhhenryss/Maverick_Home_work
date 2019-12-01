@@ -1,4 +1,4 @@
-﻿namespace Maverick_Home_work.Modes
+﻿namespace Maverick_Home_work.Interfaces
 {
     public interface ILogger
     {

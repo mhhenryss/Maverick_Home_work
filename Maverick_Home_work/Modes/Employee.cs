@@ -1,27 +1,30 @@
 ﻿using System;
+using Maverick_Home_work.Interfaces;
 
 namespace Maverick_Home_work.Modes
 {
     public abstract class Employee
     {
         public int Id { get; set; }
-        public ILogger Logger;
+        protected ILogger _logger;
+        private readonly ISalaryRepo _salaryRepo;
 
         public DateTime StartWorkingDate { get; set; }
         public DateTime Today { get; set; }
 
         public abstract decimal GetYearlyBonus();
 
-        protected Employee(ILogger logger)
+        protected Employee(ILogger logger, ISalaryRepo salaryRepo)
         {
-            Logger = logger;
+            _logger = logger;
+            _salaryRepo = salaryRepo;
         }
 
         protected decimal GetMonthlySalary()
         {
             var message = $"query monthly salary id:{Id}";
-            Logger.Info(message);
-            return SalaryRepo.Get(this.Id);
+            _logger.Info(message);
+            return _salaryRepo.Get(this.Id);
         }
     }
 }
