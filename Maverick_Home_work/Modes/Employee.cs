@@ -5,14 +5,14 @@ namespace Maverick_Home_work.Modes
     public abstract class Employee
     {
         public int Id { get; set; }
-        public Logger Logger;
+        public ILogger Logger;
 
         public DateTime StartWorkingDate { get; set; }
         public DateTime Today { get; set; }
 
         public abstract decimal GetYearlyBonus();
 
-        protected Employee(Logger logger)
+        protected Employee(ILogger logger)
         {
             Logger = logger;
         }

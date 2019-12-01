@@ -1,6 +1,7 @@
 ﻿using System;
 using Maverick_Home_work.Modes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NSubstitute;
 
 namespace Maverick_Home_work
 {
@@ -10,8 +11,9 @@ namespace Maverick_Home_work
 		[TestMethod]
 		public void calculate_LessThanOneYearEmployee_Bonus()
 		{
-			//if my monthly salary is 1200, working year is 0.5, my bonus should be 600
-			var lessThanOneYearEmployee = new LessThanOneYearEmployee()
+            var fakeLogger = Substitute.For<ILogger>();
+            //if my monthly salary is 1200, working year is 0.5, my bonus should be 600
+			var lessThanOneYearEmployee = new LessThanOneYearEmployee(fakeLogger)
 			{
 				Id = 91,
 				//Console.WriteLine("your StartDate should be :{0}", DateTime.Today.AddDays(365/2*-1));
