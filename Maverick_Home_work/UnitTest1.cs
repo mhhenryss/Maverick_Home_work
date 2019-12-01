@@ -14,6 +14,8 @@ namespace Maverick_Home_work
 		{
             var fakeLogger = Substitute.For<ILogger>();
             var fakeSalaryRepo = Substitute.For<ISalaryRepo>();
+            var salary = 1200;
+            fakeSalaryRepo.Get(salary).ReturnsForAnyArgs(salary);
             //if my monthly salary is 1200, working year is 0.5, my bonus should be 600
             var lessThanOneYearEmployee = new LessThanOneYearEmployee(fakeLogger, fakeSalaryRepo)
 			{
@@ -24,7 +26,7 @@ namespace Maverick_Home_work
 			};
 
 			var actual = lessThanOneYearEmployee.GetYearlyBonus();
-			Assert.AreEqual(600, 600);
+			Assert.AreEqual(600, actual);
 		}
 	}
 }
