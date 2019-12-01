@@ -4,6 +4,10 @@ namespace Maverick_Home_work.Modes
 {
     public class LessThanOneYearEmployee : Employee
     {
+        public LessThanOneYearEmployee(Logger logger) : base(logger)
+        {
+        }
+
         public override decimal GetYearlyBonus()
         {
             Logger.Info("--get yearly bonus--");
